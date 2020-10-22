@@ -1,0 +1,13 @@
+// Image listing constants
+export const IMAGE_LIST_REQUEST = 'IMAGE_LIST_REQUEST';
+export const IMAGE_LIST_SUCCESS = 'IMAGE_LIST_SUCCESS';
+export const IMAGE_LIST_FAIL = 'IMAGE_LIST_FAIL';
+
+//User
+export const USER_LOGIN_REQUEST = 'USER_LOGIN_REQUEST';
+export const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
+export const USER_LOGIN_FAIL = 'USER_LOGIN_FAIL';
+
+export const USER_REG_REQUEST = 'USER_REG_REQUEST';
+export const USER_REG_SUCCESS = 'USER_REG_SUCCESS';
+export const USER_REG_FAIL = 'USER_REG_FAIL';
