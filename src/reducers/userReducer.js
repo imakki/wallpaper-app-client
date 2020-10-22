@@ -5,6 +5,7 @@ const {
   USER_REG_REQUEST,
   USER_REG_SUCCESS,
   USER_REG_FAIL,
+  USER_LOGOUT,
 } = require('../constants/constant');
 
 function userLoginReducer(state = {}, action) {
@@ -15,8 +16,8 @@ function userLoginReducer(state = {}, action) {
       return { loading: false, userInfo: action.payload };
     case USER_LOGIN_FAIL:
       return { loading: false, error: action.payload };
-    // case USER_LOGOUT:
-    //   return {};
+    case USER_LOGOUT:
+      return {};
     default:
       return state;
   }

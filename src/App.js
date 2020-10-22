@@ -7,7 +7,7 @@ import './styles/main.css';
 
 function App() {
   return (
-    <div className="bg-gray-200 h-screen">
+    <div className="bg-white h-screen">
       <Switch>
         <Route path="/home" component={HomePage} />
         <Route path="/register" component={Register} />

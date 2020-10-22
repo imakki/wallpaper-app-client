@@ -36,8 +36,6 @@ const Register = () => {
     } else {
       alert('Username, email and password required!');
     }
-
-    //console.log('clicked');
   };
 
   return (

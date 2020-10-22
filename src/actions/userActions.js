@@ -7,6 +7,7 @@ import {
   USER_REG_FAIL,
   USER_REG_REQUEST,
   USER_REG_SUCCESS,
+  USER_LOGOUT,
 } from '../constants/constant';
 
 const signin = (email, password) => async (dispatch) => {
@@ -42,4 +43,9 @@ const register = (username, email, password) => async (dispatch) => {
   }
 };
 
-export { signin, register };
+const logout = () => (dispatch) => {
+  Cookie.remove('userInfo');
+  dispatch({ type: USER_LOGOUT });
+};
+
+export { signin, register, logout };
