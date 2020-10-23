@@ -4,7 +4,7 @@ const {
   IMAGE_LIST_FAIL,
 } = require('../constants/constant');
 
-function imageListReducer(state = { images: [] }, action) {
+function imageListReducer(state = { images: { images: [] } }, action) {
   switch (action.type) {
     case IMAGE_LIST_REQUEST:
       return { loading: true };
