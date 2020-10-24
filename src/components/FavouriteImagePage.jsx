@@ -3,6 +3,7 @@ import { useDispatch, connect } from 'react-redux';
 import { getFavouriteWallpaper } from '../actions/imageActions';
 import { incrementPage } from '../actions/pageAction';
 import GridImages from './GridImages';
+import Navbar from './Navbar';
 
 const IMAGE_GRID = 3;
 
@@ -20,6 +21,7 @@ const FavouriteImagePage = ({ pageNumber, getFavImage }) => {
 
   return (
     <div>
+      <Navbar />
       {favouriteImagesList ? (
         <GridImages
           wallpaperList={favouriteImagesList}
@@ -29,7 +31,7 @@ const FavouriteImagePage = ({ pageNumber, getFavImage }) => {
           ImageGridSize={IMAGE_GRID}
         />
       ) : (
-        <div>Loading...</div>
+        <div>You don't have any favourite image yet!</div>
       )}
     </div>
   );

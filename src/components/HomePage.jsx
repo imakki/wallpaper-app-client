@@ -3,6 +3,7 @@ import { useDispatch, connect } from 'react-redux';
 import { listWallpapers } from '../actions/imageActions';
 import { incrementPage } from '../actions/pageAction';
 import GridImages from './GridImages';
+import Navbar from './Navbar';
 
 const IMAGE_GRID = 3;
 
@@ -20,6 +21,7 @@ const HomePage = ({ pageNumber, imageList }) => {
 
   return (
     <div>
+      <Navbar />
       <GridImages
         wallpaperList={wallpaperList}
         loading={loading}
