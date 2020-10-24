@@ -7,6 +7,9 @@ import {
   SET_FAV_WALLPAPER_REQUEST,
   SET_FAV_WALLPAPER_SUCCESS,
   SET_FAV_WALLPAPER_FAIL,
+  GET_FAV_WALLPAPER_REQUEST,
+  GET_FAV_WALLPAPER_SUCCESS,
+  GET_FAV_WALLPAPER_FAIL,
 } from '../constants/constant';
 
 const listWallpapers = (pageNumber) => async (dispatch) => {
@@ -35,4 +38,17 @@ const setFavouriteWallpaper = (imageId) => async (dispatch, getState) => {
   }
 };
 
-export { listWallpapers, setFavouriteWallpaper };
+const getFavouriteWallpaper = () => async (dispatch, getState) => {
+  try {
+    dispatch({ type: GET_FAV_WALLPAPER_REQUEST });
+    const {
+      userSignIn: { userInfo },
+    } = getState();
+    const { data } = await axios.get(`/api/users/getfavimag/${userInfo._id}`);
+    dispatch({ type: GET_FAV_WALLPAPER_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: GET_FAV_WALLPAPER_FAIL, payload: error.message });
+  }
+};
+
+export { listWallpapers, setFavouriteWallpaper, getFavouriteWallpaper };

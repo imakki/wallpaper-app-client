@@ -1,5 +1,3 @@
-import { act } from 'react-dom/test-utils';
-
 const {
   IMAGE_LIST_REQUEST,
   IMAGE_LIST_SUCCESS,
@@ -7,6 +5,9 @@ const {
   SET_FAV_WALLPAPER_REQUEST,
   SET_FAV_WALLPAPER_SUCCESS,
   SET_FAV_WALLPAPER_FAIL,
+  GET_FAV_WALLPAPER_REQUEST,
+  GET_FAV_WALLPAPER_SUCCESS,
+  GET_FAV_WALLPAPER_FAIL,
 } = require('../constants/constant');
 
 function imageListReducer(
@@ -48,4 +49,18 @@ function setFavImageReducer(state = {}, action) {
   }
 }
 
-export { imageListReducer, setFavImageReducer };
+function getFavImageReducer(state = { favouriteImagesList: [] }, action) {
+  switch (action.type) {
+    case GET_FAV_WALLPAPER_REQUEST:
+      return { loading: true };
+    case GET_FAV_WALLPAPER_SUCCESS:
+      return { loading: false, favouriteImagesList: action.payload };
+    case GET_FAV_WALLPAPER_FAIL:
+      return { loading: false, error: action.payload };
+
+    default:
+      return state;
+  }
+}
+
+export { imageListReducer, setFavImageReducer, getFavImageReducer };

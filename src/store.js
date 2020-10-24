@@ -1,5 +1,9 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { imageListReducer, setFavImageReducer } from './reducers/imageReducer';
+import {
+  getFavImageReducer,
+  imageListReducer,
+  setFavImageReducer,
+} from './reducers/imageReducer';
 import { pageReducer } from './reducers/pageReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import Cookie from 'js-cookie';
@@ -15,6 +19,7 @@ const reducer = combineReducers({
   userSignIn: userLoginReducer,
   userRegister: userRegisterReducer,
   setFavImage: setFavImageReducer,
+  getFavImage: getFavImageReducer,
 });
 const store = createStore(
   reducer,
