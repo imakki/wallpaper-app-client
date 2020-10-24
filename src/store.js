@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { imageListReducer } from './reducers/imageReducer';
+import { pageReducer } from './reducers/pageReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import Cookie from 'js-cookie';
 import thunk from 'redux-thunk';
@@ -9,6 +10,7 @@ const userInfo = Cookie.getJSON('userInfo') || null;
 
 const initialState = { userSignIn: { userInfo } };
 const reducer = combineReducers({
+  pageNumber: pageReducer,
   imageList: imageListReducer,
   userSignIn: userLoginReducer,
   userRegister: userRegisterReducer,

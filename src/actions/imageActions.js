@@ -6,10 +6,11 @@ import {
   IMAGE_LIST_SUCCESS,
 } from '../constants/constant';
 
-const listWallpapers = () => async (dispatch) => {
+const listWallpapers = (pageNumber) => async (dispatch) => {
   try {
+    if (!pageNumber) return;
     dispatch({ type: IMAGE_LIST_REQUEST });
-    const { data } = await axios('/api/images?page=1&limit=10');
+    const { data } = await axios(`/api/images?page=${pageNumber}&limit=10`);
     dispatch({ type: IMAGE_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: IMAGE_LIST_FAIL, payload: error.message });

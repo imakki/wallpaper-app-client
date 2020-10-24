@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/custom.css';
 const ImageRender = ({ images }) => {
-  console.log(images);
   return images?.map((item) => {
     return (
       <div
@@ -13,27 +12,18 @@ const ImageRender = ({ images }) => {
           alt={item.author}
           width={item.width}
           height={item.height}
+          loading="lazy"
         />
         <div className="overlay"></div>
         <div className="button">
           <button onClick={() => console.log('clicked')}>
-            <i class="fas fa-heart"></i>
+            <i className="fas fa-heart"></i>
           </button>
           <button onClick={() => console.log('clicked')}>
-            <i class="fas fa-download"></i>
+            <i className="fas fa-download"></i>
           </button>
-          <p>{item.author}</p>
-          {/* <a href="#"> BUTTON </a>{' '} */}
+          <p className="text-white">{item.author}</p>
         </div>
-
-        {/* <div className="flex justify-between">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Like
-          </button>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Download
-          </button>
-        </div> */}
       </div>
     );
   });
