@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/custom.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFavouriteWallpaper } from '../actions/imageActions';
+
 const ImageRender = ({ images }) => {
+  const dispatch = useDispatch();
+  const [imageId, setImageId] = useState();
+  useEffect(() => {
+    if (imageId) {
+      dispatch(setFavouriteWallpaper(imageId));
+    }
+  }, [imageId, dispatch]);
+
   return images?.map((item) => {
     return (
       <div
@@ -16,7 +27,7 @@ const ImageRender = ({ images }) => {
         />
         <div className="overlay"></div>
         <div className="button">
-          <button onClick={() => console.log('clicked')}>
+          <button onClick={() => setImageId(item._id)}>
             <i className="fas fa-heart"></i>
           </button>
           <button onClick={() => console.log('clicked')}>

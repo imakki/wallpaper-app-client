@@ -4,6 +4,9 @@ const {
   IMAGE_LIST_REQUEST,
   IMAGE_LIST_SUCCESS,
   IMAGE_LIST_FAIL,
+  SET_FAV_WALLPAPER_REQUEST,
+  SET_FAV_WALLPAPER_SUCCESS,
+  SET_FAV_WALLPAPER_FAIL,
 } = require('../constants/constant');
 
 function imageListReducer(
@@ -31,4 +34,18 @@ function imageListReducer(
   }
 }
 
-export { imageListReducer };
+function setFavImageReducer(state = {}, action) {
+  switch (action.type) {
+    case SET_FAV_WALLPAPER_REQUEST:
+      return { loading: true };
+    case SET_FAV_WALLPAPER_SUCCESS:
+      return { loading: false, favImage: action.payload };
+    case SET_FAV_WALLPAPER_FAIL:
+      return { loading: false, error: action.payload };
+
+    default:
+      return state;
+  }
+}
+
+export { imageListReducer, setFavImageReducer };
