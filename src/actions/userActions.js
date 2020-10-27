@@ -15,10 +15,18 @@ const signin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_LOGIN_REQUEST, payload: { email, password } });
   //console.log(email, password);
   try {
-    const { data } = await axios.post(endPoint + '/api/users/signin', {
-      email,
-      password,
-    });
+    const { data } = await axios.post(
+      endPoint + '/api/users/signin',
+      {
+        email,
+        password,
+      },
+      {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
+    );
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data });
     Cookie.set('userInfo', JSON.stringify(data));
   } catch (error) {
@@ -32,11 +40,19 @@ const register = (username, email, password) => async (dispatch) => {
     payload: { username, email, password },
   });
   try {
-    const { data } = await axios.post(endPoint + '/api/users/register', {
-      username,
-      email,
-      password,
-    });
+    const { data } = await axios.post(
+      endPoint + '/api/users/register',
+      {
+        username,
+        email,
+        password,
+      },
+      {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+      }
+    );
     dispatch({ type: USER_REG_SUCCESS, payload: data });
     Cookie.set('userInfo', JSON.stringify(data));
   } catch (error) {

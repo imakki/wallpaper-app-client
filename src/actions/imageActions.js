@@ -23,6 +23,7 @@ const listWallpapers = (pageNumber) => async (dispatch, getState) => {
       `${endPoint}/api/images?page=${pageNumber}&limit=10`,
       {
         headers: {
+          'Access-Control-Allow-Origin': '*',
           Authorization: 'Bearer ' + userInfo.token,
         },
       }
@@ -46,6 +47,7 @@ const setFavouriteWallpaper = (imageId) => async (dispatch, getState) => {
       },
       {
         headers: {
+          'Access-Control-Allow-Origin': '*',
           Authorization: 'Bearer ' + userInfo.token,
         },
       }
@@ -66,6 +68,7 @@ const getFavouriteWallpaper = () => async (dispatch, getState) => {
       `${endPoint}/api/users/getfavimag/${userInfo._id}`,
       {
         headers: {
+          'Access-Control-Allow-Origin': '*',
           Authorization: 'Bearer ' + userInfo.token,
         },
       }
