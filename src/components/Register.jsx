@@ -27,7 +27,7 @@ const Register = () => {
     if (userInfo) {
       history.push('/');
     }
-  }, [userInfo]);
+  }, [userInfo, history]);
 
   const handleRegister = (e) => {
     e.preventDefault();

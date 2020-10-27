@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/custom.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setFavouriteWallpaper } from '../actions/imageActions';
 
 const ImageRender = ({ images }) => {

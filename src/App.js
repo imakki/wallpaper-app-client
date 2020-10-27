@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import FavouriteImagePage from './components/FavouriteImagePage';
 import HomePage from './components/HomePage';
 import Register from './components/Register';

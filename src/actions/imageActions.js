@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Cookie from 'js-cookie';
 import {
   IMAGE_LIST_FAIL,
   IMAGE_LIST_REQUEST,
