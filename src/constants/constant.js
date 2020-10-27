@@ -24,3 +24,5 @@ export const SET_FAV_WALLPAPER_FAIL = 'SET_FAV_WALLPAPER_FAIL';
 export const GET_FAV_WALLPAPER_REQUEST = 'GET_FAV_WALLPAPER_REQUEST';
 export const GET_FAV_WALLPAPER_SUCCESS = 'GET_FAV_WALLPAPER_SUCCESS';
 export const GET_FAV_WALLPAPER_FAIL = 'GET_FAV_WALLPAPER_FAIL';
+
+export const endPoint = 'https://wallpaper-app-server.herokuapp.com';

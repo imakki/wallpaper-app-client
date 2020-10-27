@@ -9,6 +9,7 @@ import {
   GET_FAV_WALLPAPER_REQUEST,
   GET_FAV_WALLPAPER_SUCCESS,
   GET_FAV_WALLPAPER_FAIL,
+  endPoint,
 } from '../constants/constant';
 
 const listWallpapers = (pageNumber) => async (dispatch, getState) => {
@@ -18,11 +19,14 @@ const listWallpapers = (pageNumber) => async (dispatch, getState) => {
     const {
       userSignIn: { userInfo },
     } = getState();
-    const { data } = await axios(`/api/images?page=${pageNumber}&limit=10`, {
-      headers: {
-        Authorization: 'Bearer ' + userInfo.token,
-      },
-    });
+    const { data } = await axios(
+      `${endPoint}/api/images?page=${pageNumber}&limit=10`,
+      {
+        headers: {
+          Authorization: 'Bearer ' + userInfo.token,
+        },
+      }
+    );
     dispatch({ type: IMAGE_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: IMAGE_LIST_FAIL, payload: error.message });
@@ -58,11 +62,14 @@ const getFavouriteWallpaper = () => async (dispatch, getState) => {
     const {
       userSignIn: { userInfo },
     } = getState();
-    const { data } = await axios.get(`/api/users/getfavimag/${userInfo._id}`, {
-      headers: {
-        Authorization: 'Bearer ' + userInfo.token,
-      },
-    });
+    const { data } = await axios.get(
+      `${endPoint}/api/users/getfavimag/${userInfo._id}`,
+      {
+        headers: {
+          Authorization: 'Bearer ' + userInfo.token,
+        },
+      }
+    );
     dispatch({ type: GET_FAV_WALLPAPER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: GET_FAV_WALLPAPER_FAIL, payload: error.message });
