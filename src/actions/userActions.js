@@ -15,7 +15,7 @@ const signin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_LOGIN_REQUEST, payload: { email, password } });
   //console.log(email, password);
   try {
-    const { data } = await axios.post(endPoint + '/api/users/signin', {
+    const { data } = await axios.post('/api/users/signin', {
       email,
       password,
     });
@@ -32,7 +32,7 @@ const register = (username, email, password) => async (dispatch) => {
     payload: { username, email, password },
   });
   try {
-    const { data } = await axios.post(endPoint + '/api/users/register', {
+    const { data } = await axios.post('/api/users/register', {
       username,
       email,
       password,

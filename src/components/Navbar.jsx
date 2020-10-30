@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../actions/userActions';
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const userLoggedIn = useSelector((state) => state.userSignIn);
+  const { userInfo } = userLoggedIn;
+
   const handleLogout = () => {
     dispatch(logout());
     history.push('/signin');
@@ -60,6 +64,16 @@ const Navbar = () => {
             </Link>
           </nav>
           <div className="hidden md:flex items-center justify-end space-x-8 md:flex-1 lg:w-0">
+            {userInfo ? (
+              <Link
+                to="/profile"
+                className="text-base leading-6 font-medium text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900 transition ease-in-out duration-150"
+              >
+                {userInfo.name}
+              </Link>
+            ) : (
+              <p>Sign In</p>
+            )}
             <span className="inline-flex rounded-md shadow-sm">
               <Link
                 to="/"

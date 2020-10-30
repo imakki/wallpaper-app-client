@@ -20,7 +20,7 @@ const listWallpapers = (pageNumber) => async (dispatch, getState) => {
       userSignIn: { userInfo },
     } = getState();
     const { data } = await axios(
-      `${endPoint}/api/images?page=${pageNumber}&limit=10`,
+      `/api/images?page=${pageNumber}&limit=10`,
       {
         headers: {
           Authorization: 'Bearer ' + userInfo.token,
@@ -63,7 +63,7 @@ const getFavouriteWallpaper = () => async (dispatch, getState) => {
       userSignIn: { userInfo },
     } = getState();
     const { data } = await axios.get(
-      `${endPoint}/api/users/getfavimag/${userInfo._id}`,
+      `/api/users/getfavimag/${userInfo._id}`,
       {
         headers: {
           Authorization: 'Bearer ' + userInfo.token,

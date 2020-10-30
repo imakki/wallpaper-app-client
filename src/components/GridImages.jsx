@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo, useRef, useEffect } from 'react';
 import ImageComponent from './ImageComponent';
+import Loader from './Loader';
 
 const GridImages = ({
   wallpaperList,
@@ -10,7 +11,6 @@ const GridImages = ({
 }) => {
   let bottomBoundaryRef = useRef(null);
 
-  console.log(wallpaperList);
   const scrollObserver = useCallback(
     (node) => {
       new IntersectionObserver((entries) => {
@@ -53,12 +53,12 @@ const GridImages = ({
       ) : (
         <div>No wallpapers</div>
       )}
-      <div
-        id="page-bottom-boundary"
-        className="border border-gray-900 "
-        ref={bottomBoundaryRef}
-      >
-        {loading && <div className="text-center">Loading...</div>}
+      <div id="page-bottom-boundary" className="border" ref={bottomBoundaryRef}>
+        {loading && (
+          <div className="text-center">
+            <Loader />
+          </div>
+        )}
       </div>
     </div>
   );
